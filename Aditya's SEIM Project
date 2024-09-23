@@ -1,0 +1,106 @@
+Project Report: Setting Up a Simple Elastic SIEM Lab
+
+Project Title: A Simple Elastic SIEM Lab
+
+Author: Aditya Sangle
+
+Date: September 24, 2024
+
+Introduction
+This project demonstrates how to create a home lab for Elastic Stack Security Information and Event Management (SIEM) using the Elastic Cloud platform and a Kali Linux Virtual Machine (VM). The goal of this lab is to simulate security events, collect logs using an Elastic agent, and analyze the data in the SIEM. This project serves as a practical introduction to security monitoring and is a valuable addition to your skill set for security-related roles.
+
+Prerequisites
+Virtualization Software: VirtualBox or VMware.
+Basic Knowledge: Familiarity with Linux commands and virtualization tools.
+
+
+Project Tasks
+
+Create an Elastic Account.
+Install and configure the Kali Linux VM.
+Deploy the Elastic Agent to collect logs.
+Generate security events on the Kali VM.
+Analyze security events in Elastic SIEM.
+Create a Dashboard to visualize data.
+Set up alerts for security events.
+
+Task 1:
+Creating an Elastic Account
+Sign Up for Free: Register for a free trial on the Elastic Cloud.
+Deploy an Instance:
+Log in and click "Create Deployment".
+Choose "Elasticsearch" as the deployment type.
+Select a suitable region and deployment size, then click "Create Deployment".
+Wait for the configuration to complete and click "Continue".
+
+
+Task 2:
+Setting Up the Kali Linux VM
+Download the Kali VM: Get the VM file from Kali’s official website.
+Create and Start a New VM:
+Use VirtualBox or VMware to create a new VM.
+Start the VM and follow the on-screen instructions to install Kali.
+Login: Use the default credentials "kali" for both username and password.
+
+
+Task 3: 
+Deploying the Elastic Agent
+Navigate to Integrations:
+Log in to your Elastic SIEM instance and go to the "Integrations" page from the Kibana main menu.
+Install Elastic Defend:
+Search for "Elastic Defend" and install it.
+Copy the command provided for Linux installation and run it in the Kali terminal.
+Verify Installation:
+Execute sudo systemctl status elastic-agent.service to ensure the agent is running properly.
+
+
+Task 4:
+Generating Security Events on Kali VM
+Install Nmap (if not preinstalled): Run sudo apt-get install nmap.
+Simulate Security Events:
+Use commands like sudo nmap <vm-ip> to scan and generate security logs.
+Experiment with different Nmap scans such as nmap -sS <ip> or nmap -p- <ip>.
+
+Task 5: 
+Analyzing Security Events in Elastic SIEM
+View Logs:
+Navigate to the "Logs" tab under "Observability" in your Elastic Deployment.
+Search Events:
+Use queries like event.action: "nmap_scan" to filter specific events.
+Review the displayed results to understand the security events.
+
+
+Task 6:
+Creating a Dashboard to Visualize Events
+Build a New Dashboard:
+Go to "Dashboards" under "Analytics" in Elastic Cloud.
+Create Visualizations:
+Click "Create Visualization" and select a type like "Line" or "Area".
+Configure metrics using "Count" as the vertical axis and "Timestamp" as the horizontal axis.
+
+
+Task 7:
+Setting Up Alerts for Security Events
+Create a New Alert:
+Go to "Security" > "Alerts" and click "Manage rules".
+Click "Create new rule" and choose a custom query such as event.action: "nmap_scan".
+Configure the Alert:
+Define the rule name, description, and severity.
+Set up actions such as sending email notifications or triggering webhooks.
+Save and activate the rule.
+
+
+Conclusion
+This lab provides a comprehensive introduction to using Elastic SIEM for security monitoring and incident response. You have learned how to:
+
+Collect and analyze security logs.
+Visualize data using dashboards.
+Create alerts for critical security events.
+
+
+Next Steps:
+
+Explore generating different types of security events.
+Test the alerts by running Nmap scans on the Kali VM.
+Learn more about Elastic’s analysis and visualization tools to enhance your security skills.
+This project offers practical experience in security monitoring, making you better prepared for roles such as a security analyst or engineer.
